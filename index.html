@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cru. Vape — A breve</title>
+  <meta name="description" content="Cru. Vape, Lecce. Il sito arriva a breve. Riservato ai maggiorenni.">
+  <meta name="theme-color" content="#084948">
+  <link rel="icon" type="image/png" href="img/icon-512.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="canonical" href="https://vapecru.it/">
+  <meta property="og:title" content="Cru. Vape — A breve">
+  <meta property="og:description" content="Siamo sul pezzo. Lecce.">
+  <meta property="og:url" content="https://vapecru.it/">
+  <meta property="og:image" content="https://vapecru.it/img/og.png">
+  <meta property="og:type" content="website">
+  <link rel="preload" href="fonts/roboto.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face { font-family: "Roboto"; src: url(fonts/roboto.woff2) format("woff2"); font-weight: 100 900; font-display: swap; }
+    @font-face { font-family: "Space Mono"; src: url(fonts/spacemono-400.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+    @font-face { font-family: "Space Mono"; src: url(fonts/spacemono-700.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+    :root { --teal:#084948; --crema:#F5EEDD; --grafite:#303030; --giallo:#EABF48; --viola:#A85FD2; --c70:rgba(245,238,221,.7); --c40:rgba(245,238,221,.4); --c15:rgba(245,238,221,.15); }
+    * { box-sizing: border-box; margin: 0; }
+    html, body { height: 100%; }
+    body { background: var(--teal); color: var(--crema); font-family: "Roboto", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow: hidden; }
+    .mono { font-family: "Space Mono", ui-monospace, monospace; }
+    .pt { display: inline-block; width: .17em; height: .17em; border-radius: 50%; background: var(--viola); margin-left: .04em; }
+
+    /* grana leggera */
+    body::before { content: ""; position: fixed; inset: -50%; pointer-events: none; opacity: .06; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    .screen { position: fixed; inset: 0; display: grid; place-items: center; padding: 24px 16px; z-index: 1;
+      transition: opacity .7s ease, visibility .7s; }
+    .screen[hidden] { display: grid; opacity: 0; visibility: hidden; pointer-events: none; }
+    .box { width: min(560px, 100%); text-align: center; }
+
+    /* ingresso 18+ */
+    .gate .logo { width: min(340px, 78vw); height: auto; display: block; margin: 0 auto 36px; }
+    .gate h1 { font-weight: 700; font-size: clamp(22px, 5vw, 28px); letter-spacing: -.02em; line-height: 1.25; }
+    .gate h1 span { display: block; color: var(--c70); font-weight: 400; }
+    .ctas { display: flex; gap: 20px; justify-content: center; align-items: center; margin-top: 32px; flex-wrap: wrap; }
+    .btn { font: 700 13px/1 "Space Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--grafite);
+      background: var(--giallo); border: 0; border-radius: 999px; padding: 16px 26px; cursor: pointer; transition: transform .2s; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:focus-visible, .link:focus-visible { outline: 2px solid var(--crema); outline-offset: 3px; }
+    .link { font: 400 13px/1 "Space Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--crema); text-decoration: none; padding: 14px 6px; }
+    .note { margin-top: 28px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--c40); }
+    .bye { margin-top: 24px; color: var(--c70); font-size: 15px; }
+
+    /* manutenzione */
+    .soon { grid-template-rows: 1fr auto; }
+    .soon .box { align-self: center; }
+    .tornado { width: clamp(84px, 16vw, 120px); height: auto; display: block; margin: 0 auto 40px; animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-10px) rotate(2deg); } }
+    .kicker { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--giallo); }
+    .soon .box { width: min(1100px, 100%); }
+    .soon h2 { font-weight: 900; font-size: clamp(58px, 15.5vw, 190px); letter-spacing: -.055em; line-height: .88; margin: 0; }
+    .wordmark { width: min(200px, 50vw) !important; }
+    .soon p.sub { font-size: clamp(17px, 3.6vw, 20px); color: var(--c70); line-height: 1.45; }
+    .line { margin: 34px auto 0; font-size: 13px; color: var(--c70); display: inline-flex; gap: 8px; align-items: center;
+      border: 1px solid var(--c15); border-radius: 999px; padding: 10px 16px; }
+    .line i { width: 7px; height: 7px; border-radius: 50%; background: var(--viola); animation: blink 1.6s ease-in-out infinite; }
+    @keyframes blink { 50% { opacity: .2; } }
+    .wordmark { width: min(260px, 64vw); height: auto; display: block; margin: 0 auto 14px; opacity: .9; }
+    footer { width: 100%; text-align: center; font-size: 11px; line-height: 1.6; color: var(--c40); letter-spacing: .04em; padding-bottom: env(safe-area-inset-bottom); }
+
+    .in > * { opacity: 0; transform: translateY(14px); animation: up .9s cubic-bezier(.2,.7,.2,1) forwards; }
+    .in > *:nth-child(2) { animation-delay: .12s; } .in > *:nth-child(3) { animation-delay: .24s; }
+    .in > *:nth-child(4) { animation-delay: .36s; } .in > *:nth-child(5) { animation-delay: .48s; }
+    @keyframes up { to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before { animation: none !important; transition: none !important; } .in > * { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <section class="screen gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-t">
+    <div class="box in">
+      <img class="logo" src="img/TORNADO+VAPE+CRU_PANNA.svg" alt="Cru. Vape">
+      <h1 id="gate-t">Qui si parla di svapo.<span>Si entra solo da maggiorenni.</span></h1>
+      <div class="ctas">
+        <button class="btn" type="button" id="yes">Ho 18 anni o più</button>
+        <a class="link" href="#" id="no">Esci ›</a>
+      </div>
+      <p class="note mono">Vietato ai minori di 18 anni</p>
+      <p class="bye" id="bye" hidden>Ci vediamo quando avrai 18 anni.</p>
+    </div>
+  </section>
+
+  <main class="screen soon" id="soon" hidden>
+    <div class="box">
+      <div class="in" id="soon-in">
+        <img class="tornado" src="img/TORNADO_PANNA.svg" alt="">
+        <h2>A breve<br>sul pezzo<i class="pt"></i></h2>
+      </div>
+    </div>
+    <footer class="mono">
+      <img class="wordmark" src="img/TORNADO+VAPE+CRU_PANNA.svg" alt="Cru. Vape">
+      © <span id="y">2026</span> Cru. Vape · Lecce · Riservato ai maggiorenni
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var KEY = "cru18", gate = document.getElementById("gate"), soon = document.getElementById("soon");
+      document.getElementById("y").textContent = new Date().getFullYear();
+      function ok() { try { return Date.now() - (+localStorage.getItem(KEY) || 0) < 30 * 864e5; } catch (e) { return false; } }
+      function open() { gate.hidden = true; soon.hidden = false; }
+      if (ok()) { gate.hidden = true; soon.hidden = false; } else { document.getElementById("yes").focus(); }
+      document.getElementById("yes").addEventListener("click", function () {
+        try { localStorage.setItem(KEY, Date.now()); } catch (e) {}
+        open();
+      });
+      document.getElementById("no").addEventListener("click", function (e) {
+        e.preventDefault(); document.getElementById("bye").hidden = false;
+        setTimeout(function () { location.href = "https://www.google.com"; }, 1400);
+      });
+    })();
+  </script>
+</body>
+</html>
